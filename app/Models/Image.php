@@ -12,24 +12,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Image extends Model
 {
     use HasFactory;
-    use HasUlid;
     use HasCreatedAtScope;
 
     public $incrementing = false;
+
+    public $observables = ['creating'];
 
     public const UPDATED_AT = null;
 
     protected $fillable = [
         'id',
         'product_id',
+        'user_id',
         'address',
         'created_at',
         'updated_at',
     ];
 
-    protected $casts = [
-     //   'type' => Enum::class,
-    ];
+    protected $casts = [];
 
     /**
      * @return BelongsTo

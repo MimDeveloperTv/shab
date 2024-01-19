@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('product_id')->index()->constrained('products');
+            $table->unsignedBigInteger('user_id');
+            $table->foreignUlid('product_id')->index()->constrained('products')->cascadeOnDelete();
             $table->text('address')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

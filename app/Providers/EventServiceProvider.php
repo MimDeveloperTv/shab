@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Image;
 use App\Models\Product;
-use App\Observer\ProductObserver;
+use App\Observer\UlidKeyObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,7 +28,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Product::observe(ProductObserver::class);
+        Product::observe(UlidKeyObserver::class);
+        Image::observe(UlidKeyObserver::class);
     }
 
     /**

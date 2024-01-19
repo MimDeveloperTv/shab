@@ -26,7 +26,9 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'],function () {
     Route::post('logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
 });
 
-Route::group(['prefix' => 'product', 'as' => 'product.'],function () {
+Route::group(['prefix' => 'product', 'as' => 'product.','middleware' => 'auth:sanctum'],function () {
     Route::post('create', [ProductController::class,'store']);
+    Route::post('add-images', [ProductController::class,'addImage']);
+    Route::get('remove/{id}', [ProductController::class,'remove']);
 });
 

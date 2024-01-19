@@ -2,9 +2,9 @@
 
 namespace App\Actions;
 
-//use App\Exceptions\ServerErrorException;
 use App\Models\Product;
 use Lorisleiva\Actions\Concerns\AsAction;
+use Illuminate\Database\Eloquent\Model;
 use Throwable;
 
 class CreateProductAction
@@ -15,7 +15,7 @@ class CreateProductAction
      * Execute the action.
      * @throws Throwable
      */
-    public function handle(string $title,float $price): array
+    public function handle(string $title,float $price): Model
     {
         try {
 
@@ -25,13 +25,11 @@ class CreateProductAction
                 'price' => $price,
             ];
 
-       return Product::query()->create()->toArray($data);
+       return Product::query()->create($data);
 
         } catch (\Exception $exception) {
 
-            return [
-                'message' => $exception->getMessage(),
-            ];
+           throw new \Exception('Creating Product Operation Has Error',500);
         }
     }
 }

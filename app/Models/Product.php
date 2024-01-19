@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Product extends Model
 {
     use HasFactory;
-    use HasUlid;
     use HasCreatedAtScope;
 
     public $incrementing = false;
+
+    public $observables = ['creating'];
 
     public const UPDATED_AT = null;
 
