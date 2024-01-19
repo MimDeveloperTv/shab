@@ -15,9 +15,9 @@ class ProductResource extends JsonResource
     public function toArray($request) //phpcs:ignore
     {
         return [
-            'id' => data_get($this->resource,'id'),
-            'title' => data_get($this->resource,'title'),
-            'price' => (float) data_get($this->resource,'price'),
+            'id' => data_get($this->resource, 'id'),
+            'title' => data_get($this->resource, 'title'),
+            'price' => (float) data_get($this->resource, 'price'),
             'created_at' => $this->resource->created_at?->toIso8601String(),
         ];
     }

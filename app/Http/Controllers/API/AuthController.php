@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
@@ -24,12 +24,13 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
+
             return response()->json([
                 'user' => $user,
                 'authorization' => [
                     'token' => $user->createToken('ApiToken')->plainTextToken,
                     'type' => 'bearer',
-                ]
+                ],
             ]);
         }
 
@@ -38,7 +39,7 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function register(Request $request) :JsonResponse
+    public function register(Request $request): JsonResponse
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -54,16 +55,16 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'User created successfully',
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
     public function logout(): JsonResponse
     {
         Auth::user()->tokens()->delete();
+
         return response()->json([
             'message' => 'Successfully logged out',
         ]);
     }
-
 }

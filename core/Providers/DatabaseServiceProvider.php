@@ -55,7 +55,7 @@ class DatabaseServiceProvider extends ServiceProvider
          *
          * @retrun LengthAwarePaginator
          */
-        Builder::macro(config('json-api-paginate.method_name'), function (int $maxResults = null, int $defaultSize = null): LengthAwarePaginator {
+        Builder::macro(config('json-api-paginate.method_name'), function (?int $maxResults = null, ?int $defaultSize = null): LengthAwarePaginator {
             $maxResults = $maxResults ?? config('json-api-paginate.max_results');
             $defaultSize = $defaultSize ?? config('json-api-paginate.default_size');
             $numberParameter = config('json-api-paginate.number_parameter');

@@ -20,15 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'auth', 'as' => 'auth.'],function () {
-    Route::post('login', [AuthController::class,'login',]);
-    Route::post('register', [AuthController::class,'register']);
-    Route::post('logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
-Route::group(['prefix' => 'product', 'as' => 'product.','middleware' => 'auth:sanctum'],function () {
-    Route::post('create', [ProductController::class,'store']);
-    Route::post('add-images', [ProductController::class,'addImage']);
-    Route::get('remove/{id}', [ProductController::class,'remove']);
+Route::group(['prefix' => 'product', 'as' => 'product.', 'middleware' => 'auth:sanctum'], function () {
+    Route::post('create', [ProductController::class, 'store']);
+    Route::post('add-images', [ProductController::class, 'addImage']);
+    Route::get('remove/{id}', [ProductController::class, 'remove']);
 });
-

@@ -11,10 +11,6 @@ final class ModelResponse implements Responsable
 {
     use HasResponse;
 
-    /**
-     * @param  JsonResource  $data
-     * @param  Status  $status
-     */
     public function __construct(
         public readonly JsonResource $data,
         public readonly Status $status = Status::OK,

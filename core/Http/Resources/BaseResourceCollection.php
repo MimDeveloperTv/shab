@@ -11,7 +11,6 @@ abstract class BaseResourceCollection extends ResourceCollection
 {
     /**
      * @param  \Illuminate\Http\Request  $request
-     * @return JsonResponse
      */
     public function toResponse($request): JsonResponse
     {

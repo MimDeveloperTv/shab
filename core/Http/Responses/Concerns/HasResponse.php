@@ -14,7 +14,6 @@ trait HasResponse
 {
     /**
      * @param  Request  $request
-     * @return JsonResponse
      */
     public function toResponse($request): JsonResponse
     {

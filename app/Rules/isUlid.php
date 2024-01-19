@@ -15,7 +15,7 @@ class isUlid implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if(!Str::isUlid($value)){
+        if (! Str::isUlid($value)) {
             $fail('is not Ulid');
         }
     }

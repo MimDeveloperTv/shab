@@ -15,7 +15,7 @@ class ImageResource extends JsonResource
     public function toArray($request) //phpcs:ignore
     {
         return [
-            'image_id' => data_get($this->resource,'id'),
+            'image_id' => data_get($this->resource, 'id'),
             'status' => 'uploaded',
         ];
     }

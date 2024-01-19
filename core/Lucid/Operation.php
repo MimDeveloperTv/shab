@@ -7,6 +7,6 @@ use Illuminate\Support\Traits\Conditionable;
 
 abstract class Operation
 {
-    use UnitDispatcher;
     use Conditionable;
+    use UnitDispatcher;
 }

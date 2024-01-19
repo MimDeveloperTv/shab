@@ -7,6 +7,6 @@ use Illuminate\Support\Traits\Conditionable;
 
 abstract class Feature
 {
-    use UnitDispatcher;
     use Conditionable;
+    use UnitDispatcher;
 }

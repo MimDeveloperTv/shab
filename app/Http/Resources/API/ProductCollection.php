@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\API;
 
-
 use Core\Http\Resources\BaseResourceCollection;
 
 class ProductCollection extends BaseResourceCollection

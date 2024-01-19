@@ -3,9 +3,9 @@
 namespace App\Actions;
 
 use App\Models\Image;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Lorisleiva\Actions\Concerns\AsAction;
-use Illuminate\Database\Eloquent\Model;
 use Throwable;
 
 class AddImageAction
@@ -14,15 +14,16 @@ class AddImageAction
 
     /**
      * Execute the action.
+     *
      * @throws Throwable
      */
-    public function handle(string $id,$image) : Model
+    public function handle(string $id, $image): Model
     {
         try {
 
             $data = [
-                'user_id'=> auth()->id(),
-                'address' => "images/{$id}/". $image->getClientOriginalName(),
+                'user_id' => auth()->id(),
+                'address' => "images/{$id}/".$image->getClientOriginalName(),
                 'product_id' => $id,
             ];
 
@@ -32,7 +33,7 @@ class AddImageAction
 
         } catch (\Exception $exception) {
 
-           throw new \Exception('Uploading image Operation Has Error',500);
+            throw new \Exception('Uploading image Operation Has Error', 500);
         }
     }
 }

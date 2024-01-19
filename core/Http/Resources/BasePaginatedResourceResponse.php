@@ -11,7 +11,6 @@ abstract class BasePaginatedResourceResponse extends PaginatedResourceResponse
      * Add the pagination information to the response.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return array
      */
     protected function paginationInformation($request): array // phpcs:ignore
     {

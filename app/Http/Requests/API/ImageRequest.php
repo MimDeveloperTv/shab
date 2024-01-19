@@ -9,13 +9,11 @@ class ImageRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
-     *
-     * @return array
      */
     public function rules(): array
     {
         return [
-            'product_id' => ['required','exists:products,id' ,new isUlid],
+            'product_id' => ['required', 'exists:products,id', new isUlid],
             'image' => 'required|image|mimes:jpg,png',
         ];
     }
@@ -27,7 +25,6 @@ class ImageRequest extends FormRequest
 
     public function getImage()
     {
-        return  $this->file('image');
+        return $this->file('image');
     }
-
 }

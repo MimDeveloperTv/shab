@@ -16,8 +16,6 @@ class HealthCheckCommand extends RunHealthChecksCommand
 {
     /**
      * Execute the console command.
-     *
-     * @return int
      */
     public function handle(): int
     {

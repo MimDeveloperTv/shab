@@ -10,10 +10,6 @@ trait ServesFeatures
 
     /**
      * Serve the given feature with the given arguments.
-     *
-     * @param  string  $feature
-     * @param  array  $parameters
-     * @return mixed
      */
     public function serve(string $feature, array $parameters = []): mixed
     {

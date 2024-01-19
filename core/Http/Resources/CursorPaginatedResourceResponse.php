@@ -8,7 +8,6 @@ final class CursorPaginatedResourceResponse extends BasePaginatedResourceRespons
      * Gather the meta data for the response.
      *
      * @param  array  $paginated
-     * @return array
      */
     protected function meta($paginated): array
     {

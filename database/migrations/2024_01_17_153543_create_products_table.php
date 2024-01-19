@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->unsignedBigInteger('user_id');
-            $table->string('title',50)->unique();
+            $table->string('title', 50)->unique();
             $table->decimal('price', 15);
             $table->timestamps();
 

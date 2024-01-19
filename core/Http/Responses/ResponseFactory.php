@@ -15,11 +15,6 @@ final class ResponseFactory
 
     /**
      * Return a new response from the application.
-     *
-     * @param  string  $content
-     * @param  int  $status
-     * @param  array  $headers
-     * @return \Illuminate\Http\Response
      */
     public function make(string $content = '', int $status = 200, array $headers = []): Response
     {
@@ -30,10 +25,6 @@ final class ResponseFactory
      * Return a new JSON response from the application.
      *
      * @param  mixed  $data
-     * @param  int  $status
-     * @param  array  $headers
-     * @param  int  $options
-     * @return \Illuminate\Http\JsonResponse
      */
     public function json($data = [], int $status = 200, array $headers = [], int $options = 0): JsonResponse
     {
@@ -42,11 +33,6 @@ final class ResponseFactory
 
     /**
      * Create a new streamed response instance.
-     *
-     * @param  \Closure  $callback
-     * @param  int  $status
-     * @param  array  $headers
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function stream(\Closure $callback, int $status = 200, array $headers = []): StreamedResponse
     {
@@ -57,12 +43,8 @@ final class ResponseFactory
      * Create a new file download response.
      *
      * @param  \SplFileInfo|string  $file
-     * @param  string|null  $name
-     * @param  array  $headers
-     * @param  string|null  $disposition
-     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function download($file, string $name = null, array $headers = [], ?string $disposition = 'attachment'): BinaryFileResponse
+    public function download($file, ?string $name = null, array $headers = [], ?string $disposition = 'attachment'): BinaryFileResponse
     {
         $response = new BinaryFileResponse($file, 200, $headers, true, $disposition);
 

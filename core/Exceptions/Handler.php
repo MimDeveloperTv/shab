@@ -43,7 +43,6 @@ final class Handler extends ExceptionHandler
 
     /**
      * @param  \Illuminate\Http\Request  $request
-     * @param  Throwable  $e
      * @return \Illuminate\Http\JsonResponse|Response|\Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Throwable $e)
@@ -59,8 +58,6 @@ final class Handler extends ExceptionHandler
      * Prepare a response for the given exception.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $e
-     * @return \Illuminate\Http\Response
      */
     protected function prepareResponse($request, Throwable $e): Response
     {

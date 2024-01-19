@@ -26,10 +26,6 @@ final class ErrorResponder
 
     private static $message;
 
-    /**
-     * @param  Throwable  $exception
-     * @return JsonResponse
-     */
     public static function handler(Throwable $exception): JsonResponse
     {
         self::$trace = $exception->getTrace();
@@ -86,14 +82,7 @@ final class ErrorResponder
         }
     }
 
-    /**
-     * @param  int  $status
-     * @param  int  $code
-     * @param  string|null  $message
-     * @param  array  $error
-     * @return JsonResponse
-     */
-    public static function fail(int $status, int $code = 400, string $message = null, array $error = []): JsonResponse
+    public static function fail(int $status, int $code = 400, ?string $message = null, array $error = []): JsonResponse
     {
         self::$code = $code;
 
@@ -122,9 +111,6 @@ final class ErrorResponder
         return self::returner();
     }
 
-    /**
-     * @return JsonResponse
-     */
     private static function returner(): JsonResponse
     {
         return response()->json(self::$result, self::$code);
