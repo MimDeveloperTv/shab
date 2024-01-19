@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,9 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'],function () {
     Route::post('login', [AuthController::class,'login',]);
     Route::post('register', [AuthController::class,'register']);
     Route::post('logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
+});
+
+Route::group(['prefix' => 'product', 'as' => 'product.'],function () {
+    Route::post('create', [ProductController::class,'store']);
 });
 

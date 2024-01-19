@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title',50)->unique();
             $table->decimal('price', 15);
-            $table->foreignUlid('image_id')->index()->constrained('images');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

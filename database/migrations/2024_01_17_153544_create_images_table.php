@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->ulid('id')->primary();
+            $table->foreignUlid('product_id')->index()->constrained('products');
             $table->text('address')->nullable();
             $table->timestamps();
         });
