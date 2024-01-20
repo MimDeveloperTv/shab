@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Actions\AddImageAction;
+use App\Actions\CreateOrderAction;
 use App\Actions\CreateProductAction;
 use App\Actions\FetchProductAction;
 use App\Actions\RemoveProductAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\CreateProductRequest;
 use App\Http\Requests\API\ImageRequest;
+use App\Http\Requests\API\OrderRequest;
 use App\Http\Resources\API\ImageResource;
 use App\Http\Resources\API\ProductCollection;
 use App\Http\Resources\API\ProductResource;
@@ -57,5 +59,10 @@ class ProductController extends Controller
     public function remove(Request $request, $id): JsonResponse
     {
         return RemoveProductAction::make()->handle($id);
+    }
+
+    public function orderSubmit(OrderRequest $request): JsonResponse
+    {
+        return CreateOrderAction::make()->handle($request->getIds());
     }
 }

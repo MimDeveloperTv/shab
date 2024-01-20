@@ -906,6 +906,296 @@
 							"body": "{\n    \"deleted\": true\n}"
 						}
 					]
+				},
+				{
+					"name": "List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://shab.test/api/product/",
+							"protocol": "http",
+							"host": [
+								"shab",
+								"test"
+							],
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://shab.test/api/product/",
+									"protocol": "http",
+									"host": [
+										"shab",
+										"test"
+									],
+									"path": [
+										"api",
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jan 2024 14:10:15 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"01HMKK8XFWYWFZJHWQQAKTGEWK\",\n            \"title\": \"test2\",\n            \"price\": 1000,\n            \"owner\": 1,\n            \"created_at\": \"2024-01-20T14:09:26+00:00\"\n        },\n        {\n            \"id\": \"01HMHYH6735PC341YA3YWAHH2E\",\n            \"title\": \"test1\",\n            \"price\": 1000,\n            \"owner\": 1,\n            \"created_at\": \"2024-01-19T22:47:43+00:00\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"per_page\": 30,\n        \"to\": 2,\n        \"total\": 2\n    },\n    \"filters\": {\n        \"id\": {\n            \"type\": \"text\",\n            \"title\": \"filters.id\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://shab.test/api/product/?filter[title_product]=te&filter[max_price]=1500",
+							"protocol": "http",
+							"host": [
+								"shab",
+								"test"
+							],
+							"path": [
+								"api",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "filter[title_product]",
+									"value": "te"
+								},
+								{
+									"key": "filter[max_price]",
+									"value": "1500"
+								},
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://shab.test/api/product/?filter[title_product]=te&filter[max_price]=1500",
+									"protocol": "http",
+									"host": [
+										"shab",
+										"test"
+									],
+									"path": [
+										"api",
+										"product",
+										""
+									],
+									"query": [
+										{
+											"key": "filter[title_product]",
+											"value": "te"
+										},
+										{
+											"key": "filter[max_price]",
+											"value": "1500"
+										},
+										{
+											"key": null,
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jan 2024 14:32:05 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"01HMHYH6735PC341YA3YWAHH2E\",\n            \"title\": \"test1\",\n            \"price\": 1000,\n            \"owner\": 1,\n            \"created_at\": \"2024-01-19T22:47:43+00:00\"\n        },\n        {\n            \"id\": \"01HMKK8XFWYWFZJHWQQAKTGEWK\",\n            \"title\": \"test2\",\n            \"price\": 1000,\n            \"owner\": 1,\n            \"created_at\": \"2024-01-20T14:09:26+00:00\"\n        },\n        {\n            \"id\": \"01HMKKZ7N4H3WZXVK6C1VMJ4YS\",\n            \"title\": \"test4\",\n            \"price\": 1500,\n            \"owner\": 1,\n            \"created_at\": \"2024-01-20T14:21:37+00:00\"\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"per_page\": 30,\n        \"to\": 3,\n        \"total\": 3\n    },\n    \"filters\": {\n        \"id\": {\n            \"type\": \"text\",\n            \"title\": \"filters.id\"\n        }\n    }\n}"
+						}
+					]
 				}
 			]
 		}

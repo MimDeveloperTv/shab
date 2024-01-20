@@ -30,5 +30,6 @@ Route::group(['prefix' => 'product', 'as' => 'product.', 'middleware' => 'auth:s
     Route::get('/', [ProductController::class, 'index']);
     Route::post('create', [ProductController::class, 'store']);
     Route::post('add-images', [ProductController::class, 'addImage']);
+    Route::post('order/submit', [ProductController::class, 'orderSubmit']);
     Route::get('remove/{id}', [ProductController::class, 'remove']);
 });
