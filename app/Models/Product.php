@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasModelScope;
-use Core\Units\Model;
+use App\Models\Concerns\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

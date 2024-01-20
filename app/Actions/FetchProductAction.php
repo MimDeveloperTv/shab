@@ -2,8 +2,8 @@
 
 namespace App\Actions;
 
+use App\Models\Concerns\FetchRecords;
 use App\Models\Product;
-use Core\Actions\FetchRecords;
 use Lorisleiva\Actions\Concerns\AsAction;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\AllowedSort;

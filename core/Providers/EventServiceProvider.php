@@ -2,14 +2,6 @@
 
 namespace Core\Providers;
 
-use App\Events\GuessPanCard;
-use App\Events\TransactionChanged;
-use App\Events\TransactionsChanged;
-use App\Listeners\FillPanCard;
-use App\Listeners\InvalidateTransactionCache;
-use App\Listeners\InvalidateTransactionsCache;
-use App\Models\Identity;
-use App\Observers\IdentityObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -19,17 +11,7 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array<class-string, array<int, class-string>>
      */
-    protected $listen = [
-        TransactionChanged::class => [
-            InvalidateTransactionCache::class,
-        ],
-        TransactionsChanged::class => [
-            InvalidateTransactionsCache::class,
-        ],
-        GuessPanCard::class => [
-            FillPanCard::class,
-        ],
-    ];
+    protected $listen = [];
 
     /**
      * Register any events for your application.
@@ -38,6 +20,5 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Identity::observe(IdentityObserver::class);
     }
 }

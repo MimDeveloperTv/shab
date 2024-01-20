@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Enums;
+namespace App\Casts;
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status

@@ -2,7 +2,7 @@
 
 namespace Core\Http\Responses\Concerns;
 
-use Core\Enums\Status;
+use App\Casts\Status;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

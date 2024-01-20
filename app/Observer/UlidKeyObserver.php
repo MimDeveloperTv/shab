@@ -2,7 +2,7 @@
 
 namespace App\Observer;
 
-use Core\Units\Model;
+use App\Models\Concerns\Model;
 use Illuminate\Support\Str;
 
 class UlidKeyObserver

@@ -2,7 +2,6 @@
 
 namespace Core\Providers;
 
-use Database\Factories\FactoryCardinality;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Pagination\PaginationState;
 use Illuminate\Support\ServiceProvider;
@@ -21,7 +20,6 @@ class AppServiceProvider extends ServiceProvider
 
         if ($this->app->isLocal()) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-            $this->app->singleton(FactoryCardinality::class, FactoryCardinality::class);
         }
     }
 

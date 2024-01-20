@@ -14,12 +14,7 @@ final class Kernel extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
-        // Middleware\TrustHosts::class,
-        // Middleware\TrustProxies::class,
-        // \Illuminate\Http\Middleware\HandleCors::class,
-        Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 

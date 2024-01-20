@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Actions;
+namespace App\Models\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\QueryBuilder\QueryBuilder;

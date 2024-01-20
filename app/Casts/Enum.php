@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Casts;
+namespace App\Casts;
 
 use Core\Enums\Transform;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
