@@ -21,8 +21,7 @@ class ProductController extends Controller
     public function index(): ProductCollection
     {
         return ProductCollection::make(
-            FetchProductAction::make()->handle())
-            ->additional(FetchProductAction::filterList());
+            FetchProductAction::make()->handle());
     }
 
     public function show(string $id): ProductResource
@@ -42,6 +41,9 @@ class ProductController extends Controller
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function addImage(ImageRequest $request): ImageResource
     {
         return ImageResource::make(
@@ -49,6 +51,9 @@ class ProductController extends Controller
         );
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function remove(Request $request, $id): JsonResponse
     {
         return RemoveProductAction::make()->handle($id);

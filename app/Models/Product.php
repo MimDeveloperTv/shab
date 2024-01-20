@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Core\Concerns\HasCreatedAtScope;
+use App\Models\Concerns\HasModelScope;
 use Core\Units\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
-    use HasCreatedAtScope;
     use HasFactory;
+    use HasModelScope;
 
     public $incrementing = false;
 

@@ -2,15 +2,16 @@
 
 namespace App\Actions;
 
-use App\Enums\Metadata\Type;
 use App\Models\Product;
 use Core\Actions\FetchRecords;
-use Core\Enums\Transform;
 use Lorisleiva\Actions\Concerns\AsAction;
 use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\AllowedSort;
 
 class FetchProductAction extends FetchRecords
 {
+    protected array $defaultSort = ['price'];
+
     use AsAction;
 
     protected function model(): string
@@ -21,35 +22,20 @@ class FetchProductAction extends FetchRecords
     protected function getAllowedFilters(): array
     {
         return [
-            AllowedFilter::exact('transaction_id'),
-            AllowedFilter::exact('type'),
-            AllowedFilter::exact('hostname'),
-            AllowedFilter::exact('referer'),
+            AllowedFilter::scope('title_product'),
+            AllowedFilter::scope('max_price'),
+        ];
+    }
+
+    protected function getAllowedSorts(): array
+    {
+        return [
+            AllowedSort::field('price'),
         ];
     }
 
     public static function filterList(): array
     {
-        return [
-            'filters' => [
-                'transaction_id' => [
-                    'type' => 'text',
-                    'title' => __('filters.transaction_id'),
-                ],
-                'hostname' => [
-                    'type' => 'text',
-                    'title' => __('filters.hostname'),
-                ],
-                'referer' => [
-                    'type' => 'text',
-                    'title' => __('filters.referer'),
-                ],
-                'type' => [
-                    'type' => 'list',
-                    'title' => __('filters.type'),
-                    'options' => Transform::mapper(Type::VALUES),
-                ],
-            ],
-        ];
+        return [];
     }
 }

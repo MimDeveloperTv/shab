@@ -18,6 +18,7 @@ class ProductResource extends JsonResource
             'id' => data_get($this->resource, 'id'),
             'title' => data_get($this->resource, 'title'),
             'price' => (float) data_get($this->resource, 'price'),
+            'owner' => data_get($this->resource, 'user_id'),
             'created_at' => $this->resource->created_at?->toIso8601String(),
         ];
     }

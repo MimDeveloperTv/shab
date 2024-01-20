@@ -27,6 +27,7 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
 });
 
 Route::group(['prefix' => 'product', 'as' => 'product.', 'middleware' => 'auth:sanctum'], function () {
+    Route::get('/', [ProductController::class, 'index']);
     Route::post('create', [ProductController::class, 'store']);
     Route::post('add-images', [ProductController::class, 'addImage']);
     Route::get('remove/{id}', [ProductController::class, 'remove']);
