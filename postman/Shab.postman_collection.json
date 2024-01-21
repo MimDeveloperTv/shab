@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a18de337-492f-49b1-b069-561dd0d73a56",
+		"_postman_id": "03713588-e979-4947-a74f-384c3c933231",
 		"name": "Shab",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1252118"
 	},
 	"item": [
 		{
@@ -549,6 +550,156 @@
 					]
 				},
 				{
+					"name": "Order Submit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_ids\"  : [\n        \"01HMNCJTK7GJHFJVE8MDQC5YJ3\",\n        \"01HMNCK0Y3T83S4R13K0JGPRYC\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://shab.test/api/product/order/submit",
+							"protocol": "http",
+							"host": [
+								"shab",
+								"test"
+							],
+							"path": [
+								"api",
+								"product",
+								"order",
+								"submit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_ids\"  : [\n        \"01HMNEEX6W4PCFR6TVGVAJ189H\",\n        \"01HMNEF0T1AJ0JTT6TG0REA9WB\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://shab.test/api/product/order/submit",
+									"protocol": "http",
+									"host": [
+										"shab",
+										"test"
+									],
+									"path": [
+										"api",
+										"product",
+										"order",
+										"submit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.22.0 (Ubuntu)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jan 2024 08:26:42 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"order\": \"01HMNJ1ZTWC8XWFCH5TPK4V7YV\",\n        \"total\": \"3,000\"\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "Add-Images",
 					"event": [
 						{
@@ -594,12 +745,7 @@
 									"type": "file",
 									"src": "/home/user/Documents/Mazhabi/Aghaye Mazhabi/Published/06 علامه مجلسی/download (5).jpeg"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://shab.test/api/product/add-images",
@@ -768,12 +914,7 @@
 									"type": "file",
 									"src": "/home/user/Documents/Mazhabi/Aghaye Mazhabi/Published/06 علامه مجلسی/download (5).jpeg"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://shab.test/api/product/remove/:id",
@@ -808,26 +949,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": " product_id",
-											"value": "{{product_id}}",
-											"type": "default"
-										},
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/home/user/Documents/Mazhabi/Aghaye Mazhabi/Published/06 علامه مجلسی/download (5).jpeg"
-										}
-									],
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "http://shab.test/api/product/remove/:id",
 									"protocol": "http",
