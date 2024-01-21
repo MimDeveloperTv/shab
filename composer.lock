@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6c03b3b185ce348090906d83e00c03b",
+    "content-hash": "1489669705ccc4788b6955af6911d299",
     "packages": [
         {
             "name": "amphp/amp",
@@ -8574,6 +8574,82 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "igorsgm/laravel-git-hooks",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/igorsgm/laravel-git-hooks.git",
+                "reference": "b29c74b67ff90ecb2a61bbbb2ab73b7d1098ee97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/igorsgm/laravel-git-hooks/zipball/b29c74b67ff90ecb2a61bbbb2ab73b7d1098ee97",
+                "reference": "b29c74b67ff90ecb2a61bbbb2ab73b7d1098ee97",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^9.0|^10.0",
+                "illuminate/console": "^9.0|^10.0",
+                "illuminate/container": "^9.0|^10.0",
+                "illuminate/contracts": "^9.0|^10.0",
+                "illuminate/pipeline": "^9.0|^10.0",
+                "illuminate/support": "^9.0|^10.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "enlightn/enlightn": "^2.3",
+                "laravel/pint": "^1.2",
+                "mockery/mockery": "^1.5.1",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": "^v8.0.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-mock": "^2.0",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Igorsgm\\GitHooks\\GitHooksServiceProvider"
+                    ],
+                    "aliases": {
+                        "GitHooks": "Igorsgm\\GitHooks\\Facades\\GitHooks"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Igorsgm\\GitHooks\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Moraes",
+                    "email": "igor.sgm@gmail.com"
+                }
+            ],
+            "description": "🪝• Efficiently manage Git hooks in Laravel projects. Enhance code quality, save time on reviews, and prevent bugs from entering your repository.",
+            "homepage": "https://github.com/igorsgm/laravel-git-hooks",
+            "keywords": [
+                "git",
+                "git-hooks",
+                "igorsgm",
+                "laravel-git-hooks",
+                "pint-pre-commit",
+                "pre-commit",
+                "pre-commit-hook"
+            ],
+            "support": {
+                "issues": "https://github.com/igorsgm/laravel-git-hooks/issues",
+                "source": "https://github.com/igorsgm/laravel-git-hooks/tree/1.1.2"
+            },
+            "time": "2024-01-04T23:04:01+00:00"
         },
         {
             "name": "laravel/pint",
