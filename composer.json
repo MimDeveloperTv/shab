@@ -14,7 +14,8 @@
         "php-http/guzzle7-adapter": "^1.0",
         "spatie/laravel-data": "^3.11",
         "spatie/laravel-json-api-paginate": "^1.13",
-        "spatie/laravel-query-builder": "^5.7"
+        "spatie/laravel-query-builder": "^5.7",
+      "ext-pdo": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12.2",
