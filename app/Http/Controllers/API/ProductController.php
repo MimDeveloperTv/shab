@@ -12,6 +12,7 @@ use App\Http\Requests\API\CreateProductRequest;
 use App\Http\Requests\API\ImageRequest;
 use App\Http\Requests\API\OrderRequest;
 use App\Http\Resources\API\ImageResource;
+use App\Http\Resources\API\OrderResource;
 use App\Http\Resources\API\ProductCollection;
 use App\Http\Resources\API\ProductResource;
 use App\Models\Product;
@@ -61,8 +62,10 @@ class ProductController extends Controller
         return RemoveProductAction::make()->handle($id);
     }
 
-    public function orderSubmit(OrderRequest $request): JsonResponse
+    public function orderSubmit(OrderRequest $request): OrderResource
     {
-        return CreateOrderAction::make()->handle($request->getIds());
+        return OrderResource::make(
+            CreateOrderAction::make()->handle($request->getIds())
+        );
     }
 }

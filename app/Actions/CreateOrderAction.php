@@ -2,6 +2,8 @@
 
 namespace App\Actions;
 
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Lorisleiva\Actions\Concerns\AsAction;
@@ -16,26 +18,34 @@ class CreateOrderAction
      *
      * @throws Throwable
      */
-    public function handle(array $ids): Model
+    public function handle(array $ids): array
     {
         try {
             $products = Product::query()->whereIn('id', $ids)->get();
             $total = $products->sum('price');
 
-            foreach ($ids as $id) {
-                $data = [
-                    'product_id' => $id,
-                    'user_id' => auth()->id(),
-                    'price' => $total,
-                    'notifyAdmin' => false,
-                ];
+           $order =  Order::query()->create([
+                'user_id' => auth()->id(),
+                'price' => $total,
+                'notifyAdmin' => false,
+            ]);
 
-                Product::query()->create($data);
+            foreach ($products as $product) {
+                OrderProduct::query()->create([
+                    'order_id' => $order->id,
+                    'product_id' => $product->id ,
+                    'price' => $product->price,
+                ]);
             }
+
+            return [
+                'total' => $total,
+                'order' => $order->id,
+            ];
 
         } catch (\Exception $exception) {
 
-            throw new \Exception('Creating Product Operation Has Error', 500);
+            throw new \Exception('Creating Order Operation Has Error', 500);
         }
     }
 }

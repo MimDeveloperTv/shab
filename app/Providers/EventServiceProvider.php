@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\NotifyAdminEvent;
+use App\Listeners\SendNotifyListener;
 use App\Models\Image;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Observer\NotifyAdminObserver;
 use App\Observer\UlidKeyObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -20,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            NotifyAdminEvent::class => [
+                SendNotifyListener::class,
+            ]
         ],
     ];
 
@@ -30,6 +38,11 @@ class EventServiceProvider extends ServiceProvider
     {
         Product::observe(UlidKeyObserver::class);
         Image::observe(UlidKeyObserver::class);
+        Order::observe(UlidKeyObserver::class);
+        OrderProduct::observe(UlidKeyObserver::class);
+
+        /** Notify Admin Observer. */
+        Order::observe(NotifyAdminObserver::class);
     }
 
     /**
@@ -37,6 +50,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function shouldDiscoverEvents(): bool
     {
-        return false;
+        return true;
     }
 }

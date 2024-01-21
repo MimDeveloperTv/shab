@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use App\Events\NotifyAdminEvent;
 use App\Models\Concerns\HasModelScope;
 use App\Models\Concerns\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Event;
+
 
 class Order extends Model
 {
@@ -32,5 +36,9 @@ class Order extends Model
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public static function SendNotifyAdmin(Order $order){
+        NotifyAdminEvent::dispatch($order);
     }
 }
